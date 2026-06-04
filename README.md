@@ -38,38 +38,38 @@ ArriSnnow.github.io/
 │
 └── README.md
 
-Pages
-Home
+# Pages
+## Home
 
 The homepage introduces my identity, academic direction, and technical interests. It includes a hero section, a short mission statement, and quick highlights.
 
-About
+## About
 
 The About page presents my background, education, academic interests, multilingual profile, and research-driven mindset.
 
-Journey
+## Journey
 
 The Journey page tells my personal and academic story through a timeline, from Haiti to Taiwan, from informatics studies to AI/XAI research and future graduate research goals.
 
-Projects
+## Projects
 
 The Projects page presents selected academic and technical projects, including explainable AI research, ensemble attribution research, a TDD grade calculator assignment, and this portfolio website.
 
-Skills
+## Skills
 
 The Skills page organizes my technical toolkit into programming, AI and data, systems, tools, research tools, and intelligent manufacturing interests.
 
-Experience
+## Experience
 
 The Experience page highlights teaching assistant work, undergraduate research, leadership experience, certificates, and academic honors.
 
-Contact
+## Contact
 
 The Contact page provides ways to connect with me for research collaboration, graduate opportunities, academic connections, and software projects.
 
-Technologies Used
+## Technologies Used
 
-This project is built with:
+### This project is built with:
 
 HTML5
 CSS3
@@ -77,7 +77,7 @@ JavaScript
 GitHub Pages
 Design Direction
 
-The website uses a dark futuristic visual style with:
+### The website uses a dark futuristic visual style with:
 
 Glassmorphism cards
 Gradient text
@@ -89,9 +89,9 @@ Simple hover interactions
 
 The goal is to keep the website professional, modern, and realistic to maintain while still giving it a memorable visual identity.
 
-Personal Focus
+## Personal Focus
 
-This portfolio reflects my interests in:
+### This portfolio reflects my interests in:
 
 Software engineering
 Artificial intelligence
@@ -102,7 +102,7 @@ Systems and networks
 Research and academic development
 Author
 
-Arridson Biraphath VERNEUS
+### Arridson Biraphath VERNEUS
 
 Informatics senior at Yuan Ze University
 Based in Taoyuan City, Taiwan
