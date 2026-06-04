@@ -781,3 +781,113 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Experience page */
+
+.experience-grid {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 20px 6% 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.experience-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: 28px;
+  backdrop-filter: blur(16px);
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  right: -70px;
+  bottom: -70px;
+  background: radial-gradient(circle, rgba(155, 109, 255, 0.18), transparent 65%);
+  pointer-events: none;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(155, 109, 255, 0.14);
+}
+
+.experience-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(98, 230, 255, 0.22), rgba(155, 109, 255, 0.28));
+  border: 1px solid var(--border);
+  color: var(--cyan);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.experience-card h2 {
+  color: var(--text-main);
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.experience-card h3 {
+  color: var(--purple);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.experience-card p {
+  color: var(--text-muted);
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.experience-tags span {
+  color: var(--cyan);
+  border: 1px solid rgba(98, 230, 255, 0.24);
+  background: rgba(98, 230, 255, 0.08);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+}
+
+.certificate-list {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.certificate-list p {
+  padding: 11px 12px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1000px) {
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+}
