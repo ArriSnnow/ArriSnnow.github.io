@@ -891,3 +891,134 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Contact page */
+
+.contact-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 6% 110px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.contact-content h1 {
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--cyan), #8cb5ff, var(--purple));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.contact-intro {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin-bottom: 34px;
+}
+
+.contact-info-grid {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.contact-info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 22px;
+  backdrop-filter: blur(16px);
+}
+
+.contact-info-card h2 {
+  color: var(--cyan);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.contact-info-card p {
+  color: var(--text-muted);
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.contact-visual {
+  position: relative;
+}
+
+.message-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 34px;
+  backdrop-filter: blur(18px);
+  min-height: 360px;
+  box-shadow: 0 0 45px rgba(98, 230, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.message-card::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  right: -80px;
+  top: -80px;
+  background: radial-gradient(circle, rgba(98, 230, 255, 0.22), transparent 65%);
+}
+
+.message-card h2 {
+  color: var(--text-main);
+  font-size: 1.8rem;
+  line-height: 1.25;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.message-card p {
+  color: var(--text-muted);
+  position: relative;
+}
+
+.message-lines {
+  margin-top: 42px;
+  display: grid;
+  gap: 14px;
+  position: relative;
+}
+
+.message-lines span {
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(98, 230, 255, 0.65), rgba(155, 109, 255, 0.55));
+}
+
+.message-lines span:nth-child(2) {
+  width: 78%;
+}
+
+.message-lines span:nth-child(3) {
+  width: 55%;
+}
+
+@media (max-width: 900px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-buttons {
+    flex-direction: column;
+  }
+}
