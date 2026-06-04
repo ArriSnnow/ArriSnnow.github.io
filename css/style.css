@@ -402,3 +402,128 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Journey timeline page */
+
+.timeline-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 6% 110px;
+  position: relative;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 40px;
+  bottom: 120px;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, var(--cyan), var(--purple));
+  box-shadow: 0 0 24px rgba(98, 230, 255, 0.5);
+  border-radius: 999px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 28px 42px;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 42px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  color: #06111f;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 24px rgba(98, 230, 255, 0.45);
+  z-index: 2;
+}
+
+.timeline-item.left .timeline-dot {
+  right: -19px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -19px;
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 28px;
+  backdrop-filter: blur(16px);
+  transition: 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(155, 109, 255, 0.16);
+}
+
+.timeline-tag {
+  display: inline-block;
+  color: var(--cyan);
+  font-size: 0.78rem;
+  border: 1px solid rgba(98, 230, 255, 0.28);
+  background: rgba(98, 230, 255, 0.08);
+  border-radius: 999px;
+  padding: 5px 11px;
+  margin-bottom: 14px;
+}
+
+.timeline-card h2 {
+  color: var(--text-main);
+  font-size: 1.45rem;
+  margin-bottom: 6px;
+}
+
+.timeline-card h3 {
+  color: var(--purple);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.timeline-card p {
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .timeline-line {
+    left: 24px;
+  }
+
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding-left: 70px;
+    padding-right: 0;
+  }
+
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 5px;
+    right: auto;
+  }
+}
