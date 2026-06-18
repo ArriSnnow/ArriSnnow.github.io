@@ -1039,10 +1039,10 @@ body {
   --bg-main: #ffffff; /*#050816;*/
   --bg-card: #ffffff; /*rgba(255, 255, 255, 0.08);*/
   --bg-card-strong: #f4f6f9; /*rgba(255, 255, 255, 0.12);*/
-  --text-main: #f5f7ff;
-  --text-muted: #b7c0d8;
-  --cyan: #62e6ff;
-  --purple: #9b6dff;
+  --text-main: #161c2c; /*#f5f7ff;*/
+  --text-muted: #5c6b7a; /*#b7c0d8;*/
+  --cyan: #1b3a52; /*#62e6ff;*/
+  --purple: #2c5f7f; /*#9b6dff;*/
   --border: rgba(15, 23, 42, 0.12); /*rgba(255, 255, 255, 0.16);*/
   --shadow: rgba(27, 58, 82, 0.15); /*rgba(98, 230, 255, 0.18);*/
   --font-display: "Syne", "Segoe UI", sans-serif;
