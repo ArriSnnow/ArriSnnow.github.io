@@ -1036,18 +1036,30 @@ body {
 }
 
 :root {
-  --bg-main: #050816;
-  --bg-card: rgba(255, 255, 255, 0.08);
-  --bg-card-strong: rgba(255, 255, 255, 0.12);
+  --bg-main: #ffffff; /*#050816;*/
+  --bg-card: #ffffff; /*rgba(255, 255, 255, 0.08);*/
+  --bg-card-strong: #f4f6f9; /*rgba(255, 255, 255, 0.12);*/
   --text-main: #f5f7ff;
   --text-muted: #b7c0d8;
   --cyan: #62e6ff;
   --purple: #9b6dff;
-  --border: rgba(255, 255, 255, 0.16);
-  --shadow: rgba(98, 230, 255, 0.18);
+  --border: rgba(15, 23, 42, 0.12); /*rgba(255, 255, 255, 0.16);*/
+  --shadow: rgba(27, 58, 82, 0.15); /*rgba(98, 230, 255, 0.18);*/
   --font-display: "Syne", "Segoe UI", sans-serif;
   --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+/* NAVY BANNER ZONE — header & footer keep the dark blue look */
+.site-header,
+.site-footer {
+  --bg-card: #16314a;
+  --bg-card-strong: #1c3a57;
+  --text-main: #edeae2;
+  --text-muted: #8fa3bc;
+  --cyan: #e8b462;      /* gold accent pops on navy */
+  --purple: #7fd3ff;
+  --border: rgba(255, 255, 255, 0.10);
 }
 
 html {
