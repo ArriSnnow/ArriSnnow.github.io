@@ -8,8 +8,8 @@
 
 :root {
   --bg-main: #ffffff; /*#050816;*/
-  --bg-card: #eef3f9; /*rgba(255, 255, 255, 0.08);*/
-  --bg-card-strong: #e3ebf3; /*rgba(255, 255, 255, 0.12);*/
+  --bg-card: #e2ebf5 /* #eef3f9; /*rgba(255, 255, 255, 0.08);*/
+  --bg-card-strong: #d3e0ef /* #e3ebf3; /*rgba(255, 255, 255, 0.12);*/
   --text-main: #161c2c; /*#f5f7ff;*/
   --text-muted: #5c6b7a; /*#b7c0d8;*/
   --cyan: #1b3a52; /*#62e6ff;*/
