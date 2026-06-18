@@ -1043,7 +1043,7 @@ body {
   --text-muted: #5c6b7a; /*#b7c0d8;*/
   --cyan: #1b3a52; /*#62e6ff;*/
   --purple: #2c5f7f; /*#9b6dff;*/
-  --border: rgba(15, 23, 42, 0.12); /*rgba(255, 255, 255, 0.16);*/
+  --border: rgba(15, 23, 42, 0.18); /*rgba(255, 255, 255, 0.16);*/
   --shadow: rgba(27, 58, 82, 0.15); /*rgba(98, 230, 255, 0.18);*/
   --font-display: "Syne", "Segoe UI", sans-serif;
   --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
