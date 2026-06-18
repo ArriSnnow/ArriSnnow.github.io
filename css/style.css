@@ -1069,12 +1069,25 @@ html {
 body {
   font-family: var(--font-body);
   background:
-    radial-gradient(circle at top right, rgba(155, 109, 255, 0.28), transparent 35%),
-    radial-gradient(circle at bottom left, rgba(98, 230, 255, 0.22), transparent 35%),
+    /* radial-gradient(circle at top right, rgba(155, 109, 255, 0.28), transparent 35%),
+    radial-gradient(circle at bottom left, rgba(98, 230, 255, 0.22), transparent 35%), */
     var(--bg-main);
   color: var(--text-main);
   min-height: 100vh;
   line-height: 1.6;
+}
+
+/* Navy hero banner */
+.hero-section {
+  --bg-card: #16314a;
+  --bg-card-strong: #1c3a57;
+  --text-main: #edeae2;
+  --text-muted: #8fa3bc;
+  --cyan: #e8b462;
+  --purple: #7fd3ff;
+  --border: rgba(255, 255, 255, 0.10);
+  background: #0f2236;
+  border-radius: 0 0 28px 28px;
 }
 
 /* Header */
@@ -1094,7 +1107,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(10, 18, 40, 0.75);
+  background: #0f2236; /*rgba(10, 18, 40, 0.75);*/
   border: 1px solid var(--border);
   border-radius: 22px;
   backdrop-filter: blur(18px);
