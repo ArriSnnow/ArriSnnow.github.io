@@ -57,8 +57,10 @@ body {
   --cyan: #e8b462;
   --purple: #7fd3ff;
   --border: rgba(255, 255, 255, 0.10);
-  background: #0f2236;
-  border-radius: 0 0 28px 28px;
+  background:
+    linear-gradient(rgba(8, 16, 28, 0.55), rgba(8, 16, 28, 0.55)),
+    url("../assets/hero.jpg") center / cover no-repeat;
+  border-radius: 0;
 }
 
 /* Header */
@@ -120,6 +122,29 @@ body {
   border: 1px solid var(--border);
 }
 
+/* Homepage: transparent nav overlaid on the hero photo */
+.home .site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+}
+.home .navbar {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.home .logo,
+.home .nav-links a:hover,
+.home .nav-links a.active {
+  color: #ffffff;
+}
+.home .nav-links a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .highlight-card,
 .info-card,
 .timeline-card,
@@ -132,13 +157,14 @@ body {
 /* Hero */
 
 .hero-section {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 90px 6% 70px;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  padding: 180px 6% 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 60px;
+  /*gap: 60px;*/
 }
 
 .section-label {
@@ -152,13 +178,23 @@ body {
   font-size: 0.9rem;
 }
 
+.hero-content {
+  max-width: 820px;
+}
+
 .hero-content h1 {
-  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  font-size: clamp(2.6rem, 6vw, 5rem);
   line-height: 1.05;
-  margin-bottom: 18px;
-  background: linear-gradient(135deg, var(--cyan), #8cb5ff, var(--purple));
-  -webkit-background-clip: text;
-  color: transparent;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background: none;
+}
+
+.hero-accent {
+  display: block;
+  color: var(--cyan);
 }
 
 .hero-content h2 {
@@ -171,14 +207,15 @@ body {
 .hero-description {
   max-width: 560px;
   font-size: 1.1rem;
-  color: var(--text-muted);
-  margin-bottom: 36px;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 auto 36px;
 }
 
 .hero-buttons {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .primary-button,
@@ -205,6 +242,12 @@ body {
 .primary-button:hover,
 .secondary-button:hover {
   transform: translateY(-3px);
+}
+
+.hero-section .primary-button {
+  background: #f08a24;
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(240, 138, 36, 0.35);
 }
 
 /* Hero visual */
@@ -287,11 +330,12 @@ body {
 }
 
 .highlight-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 22px;
+  background: transparent;
+  border:  none;
+  box-shadow: none;
+  border-radius: 0;
   padding: 26px;
-  backdrop-filter: blur(16px);
+  text-align: center;
 }
 
 .highlight-card h3 {
@@ -330,12 +374,8 @@ body {
   }
 
   .hero-section {
-    grid-template-columns: 1fr;
-    padding-top: 50px;
-  }
-
-  .hero-visual {
-    min-height: 360px;
+    padding: 130px 6% 80px;
+    min-height: 80vh;
   }
 
   .top-card,
