@@ -59,7 +59,7 @@ body {
   --border: rgba(255, 255, 255, 0.10);
   background:
     linear-gradient(rgba(8, 16, 28, 0.55), rgba(8, 16, 28, 0.55)),
-    url("../assets/hero.webp") center / cover no-repeat;
+    url("../assets/images/hero.webp") center / cover no-repeat;
   border-radius: 0;
 }
 
