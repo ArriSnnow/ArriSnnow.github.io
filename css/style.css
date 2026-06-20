@@ -207,8 +207,12 @@ body {
 .hero-description {
   max-width: 560px;
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: #ffffff;
   margin: 0 auto 36px;
+  padding: 16px 24px;
+  background: rgba(10, 18, 30, 0.45);
+  border-radius: 14px;
+  backdrop-filter: blur(4px);
 }
 
 .hero-buttons {
