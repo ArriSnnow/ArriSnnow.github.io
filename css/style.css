@@ -488,6 +488,15 @@ body {
   box-shadow: 0 0 35px rgba(98, 230, 255, 0.12);
 }
 
+.card-photo {
+  display: block;
+  width: calc(100% + 56px);
+  height: 180px;
+  margin: -28px -28px 20px;
+  object-fit: cover;
+  border-radius: 22px 22px 0 0;
+}
+
 .info-card h2 {
   color: var(--cyan);
   margin-bottom: 14px;
