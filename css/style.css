@@ -1523,7 +1523,7 @@ button:focus-visible {
   background:
     linear-gradient(rgba(8, 16, 28, 0.72), rgba(8, 16, 28, 0.80)),
     url("../assets/images/journey-hero.webp") center / cover no-repeat,
-    #0f2236;
+    #64798f;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
 }
 .journey-hero .journey-badge {
@@ -1708,6 +1708,6 @@ button:focus-visible {
 
 /* Road band: slightly thinner on phones so it fits the narrow column */
 @media (max-width: 768px) {
-  .journey-road .road-base { stroke-width: 24px; }
+  .journey-road .road-base { stroke-width: 26px; }
   .journey-road .road-dash { stroke-width: 2px; }
 }
