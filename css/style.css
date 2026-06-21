@@ -1409,6 +1409,7 @@ button:focus-visible {
   max-width: none;
   margin: 0;
   padding: 0;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 /* --- Icon badge on identity cards --- */
@@ -1463,6 +1464,7 @@ button:focus-visible {
   margin: 20px 0 0;
   padding: 0;
   gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 /* --- Right sidebar panels --- */
