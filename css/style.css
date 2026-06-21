@@ -457,6 +457,23 @@ body {
   gap: 22px;
 }
 
+/* About page: personal "beyond the work" intro */
+.personal-intro {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 6% 6px;
+  text-align: center;
+}
+.personal-intro h2 {
+  font-size: 2rem;
+  margin: 10px 0 18px;
+}
+.personal-intro p {
+  max-width: 760px;
+  margin: 0 auto 16px;
+  line-height: 1.7;
+}
+
 .info-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
