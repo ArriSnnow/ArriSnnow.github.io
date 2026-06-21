@@ -1373,12 +1373,15 @@ button:focus-visible {
 }
 
 /* =====================================================================
-   ABOUT PAGE — two-column layout, sidebar panels, icon badges
-   Append this to the END of css/style.css
+   ABOUT PAGE — wide magazine/dashboard layout
+   REPLACE the previous "ABOUT PAGE" block at the very end of
+   css/style.css with this entire block.
+   Layout only — no content, color, or typography changes.
    ===================================================================== */
 
-/* --- Hero becomes a soft panel --- */
+/* --- Featured hero: wide card, image left / text right --- */
 .about-hero {
+  max-width: 1180px;
   background: linear-gradient(135deg, #f1f7f5, #eef3fb);
   border: 1px solid var(--border);
   border-radius: 28px;
@@ -1387,14 +1390,14 @@ button:focus-visible {
   box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
 }
 
-/* --- Two-column wrapper: main story + right sidebar --- */
+/* --- Two-column wrapper: wide main column (~70%) + sidebar (~30%) --- */
 .about-layout {
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 34px 6% 90px;
+  padding: 36px clamp(16px, 3vw, 28px) 64px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 30px;
+  gap: 32px;
   align-items: start;
 }
 
@@ -1404,45 +1407,27 @@ button:focus-visible {
   gap: 26px;
 }
 
-/* the six identity cards: strip the section's own centering inside the column */
+/* Six identity cards: 3 across inside the main column (shrink, never overflow) */
 .about-main > .card-grid {
   max-width: none;
   margin: 0;
   padding: 0;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 /* --- Icon badge on identity cards --- */
-.info-card .card-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-.info-card .card-head h2 {
-  margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.2;
-}
+.info-card .card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.info-card .card-head h2 { margin: 0; font-size: 1.1rem; line-height: 1.2; }
 .card-icon,
 .panel-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
-  border-radius: 10px;
-  background: var(--bg-card);
-  color: #2f9e6f;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; flex: 0 0 36px;
+  border-radius: 10px; background: var(--bg-card); color: #2f9e6f;
 }
-.card-icon svg,
-.panel-icon svg {
-  width: 18px;
-  height: 18px;
-}
+.card-icon svg, .panel-icon svg { width: 18px; height: 18px; }
 
-/* --- Beyond the Work panel --- */
+/* --- Beyond the Work: spans the full width of the main column --- */
 .beyond-panel {
   background: #fbfdfc;
   border: 1px solid var(--border);
@@ -1450,29 +1435,18 @@ button:focus-visible {
   padding: 28px;
   box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
 }
-.beyond-panel .beyond-title {
-  color: var(--cyan);
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-.beyond-panel .beyond-lead {
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
+.beyond-panel .beyond-title { color: var(--cyan); font-size: 1.5rem; margin-bottom: 10px; }
+.beyond-panel .beyond-lead { color: var(--text-muted); margin-bottom: 4px; }
 .beyond-panel .card-grid {
   max-width: none;
   margin: 20px 0 0;
   padding: 0;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* --- Right sidebar panels --- */
-.about-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
+/* --- Right sidebar: its own independent stacked column --- */
+.about-sidebar { display: flex; flex-direction: column; gap: 22px; }
 .side-panel {
   background: #ffffff;
   border: 1px solid var(--border);
@@ -1480,89 +1454,55 @@ button:focus-visible {
   padding: 22px;
   box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
 }
-.panel-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-.panel-head h2 {
-  font-size: 1.05rem;
-  color: var(--cyan);
-  margin: 0;
-}
+.panel-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.panel-head h2 { font-size: 1.05rem; color: var(--cyan); margin: 0; }
 
-/* rows shared by Quick Facts, Current Focus, Connect */
-.fact-row,
-.focus-row,
-.link-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-  line-height: 1.45;
+.fact-row, .focus-row, .link-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.92rem; color: var(--text-muted);
+  margin-bottom: 12px; line-height: 1.45;
 }
-.fact-row:last-child,
-.focus-row:last-child,
-.link-row:last-child {
-  margin-bottom: 0;
-}
-.row-icon {
-  color: #2f9e6f;
-  flex: 0 0 18px;
-  margin-top: 2px;
-}
-.row-icon svg {
-  width: 16px;
-  height: 16px;
-}
-.fact-row strong,
-.focus-row strong,
-.link-row strong {
-  color: var(--cyan);
-  font-weight: 600;
-}
-.link-row a {
-  color: var(--purple);
-  text-decoration: none;
-  word-break: break-word;
-}
-.link-row a:hover {
-  text-decoration: underline;
-}
+.fact-row:last-child, .focus-row:last-child, .link-row:last-child { margin-bottom: 0; }
+.row-icon { color: #2f9e6f; flex: 0 0 18px; margin-top: 2px; }
+.row-icon svg { width: 16px; height: 16px; }
+.fact-row strong, .focus-row strong, .link-row strong { color: var(--cyan); font-weight: 600; }
+.link-row a { color: var(--purple); text-decoration: none; word-break: break-word; }
+.link-row a:hover { text-decoration: underline; }
 
-/* --- Quote panel ("What Drives Me") --- */
+/* --- Quote panel --- */
 .quote-panel .quote-mark {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  line-height: 0.5;
-  color: #2f9e6f;
-  opacity: 0.55;
-  display: block;
+  font-family: var(--font-display); font-size: 2.2rem; line-height: 0.5;
+  color: #2f9e6f; opacity: 0.55; display: block;
 }
-.quote-panel .quote-mark.close {
-  text-align: right;
-  margin-top: 6px;
-}
+.quote-panel .quote-mark.close { text-align: right; margin-top: 6px; }
 .quote-panel blockquote {
-  font-style: italic;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 8px 0 0;
+  font-style: italic; color: var(--text-muted);
+  font-size: 0.95rem; line-height: 1.6; margin: 8px 0 0;
 }
 
-/* --- Responsive: collapse to one column --- */
-@media (max-width: 900px) {
+/* =========================== RESPONSIVE =========================== */
+
+/* Tablet: sidebar drops below the main content; cards go 2-up */
+@media (max-width: 1024px) {
   .about-layout {
     grid-template-columns: 1fr;
-    padding-bottom: 60px;
+    padding-bottom: 56px;
+  }
+  .about-main > .card-grid,
+  .beyond-panel .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@media (max-width: 720px) {
-  .about-hero {
-    padding: 28px 24px;
+
+/* Mobile: every grid becomes a single column */
+@media (max-width: 600px) {
+  .about-main > .card-grid,
+  .beyond-panel .card-grid {
+    grid-template-columns: 1fr;
   }
+}
+
+/* Hero padding tightens on small screens (it already stacks via the base rule) */
+@media (max-width: 720px) {
+  .about-hero { padding: 28px 24px; }
 }
