@@ -1705,3 +1705,9 @@ button:focus-visible {
 
   .journey-cta { margin: 48px auto 56px; padding: 40px 24px; }
 }
+
+/* Road band: slightly thinner on phones so it fits the narrow column */
+@media (max-width: 768px) {
+  .journey-road .road-base { stroke-width: 24px; }
+  .journey-road .road-dash { stroke-width: 2px; }
+}
