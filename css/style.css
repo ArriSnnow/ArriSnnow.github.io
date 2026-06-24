@@ -1713,115 +1713,139 @@ button:focus-visible {
 }
 
 /* =====================================================================
-   PROJECTS PAGE — dark infographic "project journey"
+   PROJECTS PAGE — soft continuous background, light mint cards
    REPLACE the previous PROJECTS block at the end of css/style.css
    with this entire block.
    ===================================================================== */
 
-/* Full-width dark band — the transition from the white hero */
+/* Continuous page gradient (scoped to the Projects page via body class) */
+.projects-page {
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 30%, #f0faf5 100%);
+  background-attachment: fixed;
+}
+
+/* The project list wrapper — now light & transparent, with soft decor */
 .projects-infographic {
-  background: linear-gradient(180deg, #0f2236 0%, #0a1626 100%);
-  padding: 64px 0 76px;
-  margin-top: 24px;
+  position: relative;
+  background: transparent;
+  padding: 44px 0 80px;
+  overflow: hidden;
+}
+.projects-infographic::before {
+  content: "";
+  position: absolute; top: -90px; right: -130px;
+  width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(141, 196, 189, 0.28), transparent 70%);
+  filter: blur(22px); pointer-events: none; z-index: 0;
+}
+.projects-infographic::after {
+  content: "";
+  position: absolute; top: 42%; left: -150px;
+  width: 440px; height: 440px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(140, 181, 255, 0.18), transparent 70%);
+  filter: blur(22px); pointer-events: none; z-index: 0;
 }
 .infographic-inner {
-  max-width: 1050px;
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 6%;
 }
 
-/* One project = one step row: block (left) + content (right) */
+/* One project = one mint card: number block (left) + content (right) */
 .project-step {
   position: relative;
   display: grid;
-  grid-template-columns: 168px 1fr;
-  gap: 34px;
-  align-items: start;
-  padding-bottom: 44px;
+  grid-template-columns: 150px 1fr;
+  gap: 28px;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 26px 30px;
+  margin-bottom: 28px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 1;
 }
-.project-step:last-of-type { padding-bottom: 8px; }
+.project-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+}
+.project-step:last-of-type { margin-bottom: 0; }
 
-/* Dashed gold route connecting the step blocks */
-.project-step::before {
+/* Subtle dashed connector in the gap between cards (progression) */
+.project-step:not(:last-of-type)::after {
   content: "";
   position: absolute;
-  left: 84px;
+  left: 105px;
   transform: translateX(-50%);
-  top: 0; bottom: 0;
-  border-left: 2px dashed rgba(232, 180, 98, 0.45);
-  z-index: 0;
+  bottom: -28px;
+  height: 28px;
+  border-left: 2px dashed rgba(27, 58, 82, 0.20);
 }
-.project-step:first-of-type::before { top: 66px; }
-.project-step:last-of-type::before { height: 66px; bottom: auto; }
 
-/* The raised "cube" step block */
+/* Light numbered block */
 .project-step-block {
-  position: relative;
-  z-index: 1;
-  min-height: 132px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 4px;
-  padding: 20px 14px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 4px;
+  background: #ffffff;
+  border: 1px solid var(--border);
   border-radius: 16px;
-  background: linear-gradient(160deg, #e8eef8, #cdd9ea);
-  border-bottom: 5px solid rgba(15, 23, 42, 0.22);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.40);
+  padding: 18px 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
 }
 .project-icon {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; color: #c8911f;
+  width: 32px; height: 32px; color: #2f6f9e;
 }
-.project-icon svg { width: 22px; height: 22px; }
+.project-icon svg { width: 21px; height: 21px; }
 .project-label {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: 0.66rem; letter-spacing: 0.18em; font-weight: 600;
-  color: #a9750f;
+  font-size: 0.64rem; letter-spacing: 0.18em; font-weight: 600;
+  color: #b07d1a;
 }
 .project-number {
   font-family: var(--font-display);
-  font-weight: 800; font-size: 2.6rem; line-height: 1;
+  font-weight: 800; font-size: 2.5rem; line-height: 1;
   background: linear-gradient(135deg, #1b3a52, #4d8fd6);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
-/* Right-side project details (on dark background) */
-.project-content { position: relative; z-index: 1; padding-top: 6px; }
-.project-content h2 { color: #ffffff; font-size: 1.3rem; margin: 0 0 8px; line-height: 1.2; }
-.project-content > p { color: rgba(255, 255, 255, 0.82); font-size: 0.96rem; margin: 0 0 14px; }
+/* Right-side content (dark text on the light card) */
+.project-content { min-width: 0; }
+.project-content h2 { color: var(--cyan); font-size: 1.25rem; margin: 0 0 8px; line-height: 1.2; }
+.project-content > p { color: var(--text-muted); font-size: 0.96rem; margin: 0 0 14px; }
 
 .project-tags {
   display: flex; flex-wrap: wrap; gap: 8px;
   list-style: none; padding: 0; margin: 0 0 14px;
 }
 .project-tags li {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #dce7f5; border-radius: 999px;
+  background: #ffffff; color: var(--cyan);
+  border: 1px solid var(--border); border-radius: 999px;
   padding: 4px 12px; font-size: 0.8rem; font-weight: 500;
 }
-.project-meta { color: rgba(255, 255, 255, 0.55); font-style: italic; font-size: 0.85rem; margin: 0 0 14px; }
+.project-meta { color: var(--text-muted); font-style: italic; font-size: 0.85rem; margin: 0 0 14px; }
 
 .project-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .project-actions .repo-btn {
   display: inline-flex; align-items: center; gap: 7px;
-  background: #e8b462; color: #14233a;
+  background: #0f2236; color: #ffffff;
   border-radius: 999px; padding: 9px 18px;
   font-size: 0.85rem; font-weight: 600; text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.project-actions .repo-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(232, 180, 98, 0.3); }
+.project-actions .repo-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18); }
 .project-actions .repo-btn svg { width: 16px; height: 16px; }
 
-/* Closing CTA inside the dark section */
+/* Closing CTA — light */
 .infographic-cta {
-  text-align: center; margin-top: 22px; padding-top: 36px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center; margin-top: 24px; padding-top: 36px;
+  border-top: 1px solid var(--border);
 }
-.infographic-cta p { color: rgba(255, 255, 255, 0.78); margin: 0 0 18px; }
+.infographic-cta p { color: var(--text-muted); margin: 0 0 18px; }
 .infographic-cta .repo-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: #e8b462; color: #14233a; border-radius: 999px;
@@ -1833,20 +1857,21 @@ button:focus-visible {
 
 /* ----- Tablet ----- */
 @media (max-width: 900px) {
-  .project-step { grid-template-columns: 132px 1fr; gap: 24px; }
-  .project-step::before { left: 66px; }
-  .project-number { font-size: 2.2rem; }
+  .project-step { grid-template-columns: 120px 1fr; gap: 22px; padding: 22px 24px; }
+  .project-step:not(:last-of-type)::after { left: 84px; }
+  .project-number { font-size: 2.1rem; }
 }
 
-/* ----- Mobile: block above content, route hidden ----- */
+/* ----- Mobile: number block above content; connector hidden ----- */
 @media (max-width: 620px) {
-  .projects-infographic { padding: 44px 0 56px; }
+  .projects-infographic { padding: 32px 0 56px; }
   .infographic-inner { padding: 0 18px; }
-  .project-step { grid-template-columns: 1fr; gap: 14px; padding-bottom: 30px; }
-  .project-step::before { display: none; }
-  .project-step-block {
-    flex-direction: row; justify-content: flex-start;
-    min-height: 0; gap: 14px; padding: 14px 18px;
+  .project-step {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 20px;
   }
-  .project-number { font-size: 2rem; }
+  .project-step:not(:last-of-type)::after { display: none; }
+  .project-step-block { flex-direction: row; justify-content: flex-start; gap: 14px; padding: 12px 16px; }
+  .project-number { font-size: 1.9rem; }
 }
