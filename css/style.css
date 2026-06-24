@@ -1713,87 +1713,140 @@ button:focus-visible {
 }
 
 /* =====================================================================
-   PROJECTS PAGE — flat "staircase" of project steps
-   Append to the END of css/style.css.
+   PROJECTS PAGE — dark infographic "project journey"
+   REPLACE the previous PROJECTS block at the end of css/style.css
+   with this entire block.
    ===================================================================== */
-.projects-stairs {
-  max-width: 1000px;
-  margin: 10px auto 0;
-  padding: 10px 6% 30px;
+
+/* Full-width dark band — the transition from the white hero */
+.projects-infographic {
+  background: linear-gradient(180deg, #0f2236 0%, #0a1626 100%);
+  padding: 64px 0 76px;
+  margin-top: 24px;
 }
+.infographic-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 6%;
+}
+
+/* One project = one step row: block (left) + content (right) */
 .project-step {
   position: relative;
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 34px;
+  align-items: start;
+  padding-bottom: 44px;
+}
+.project-step:last-of-type { padding-bottom: 8px; }
+
+/* Dashed gold route connecting the step blocks */
+.project-step::before {
+  content: "";
+  position: absolute;
+  left: 84px;
+  transform: translateX(-50%);
+  top: 0; bottom: 0;
+  border-left: 2px dashed rgba(232, 180, 98, 0.45);
+  z-index: 0;
+}
+.project-step:first-of-type::before { top: 66px; }
+.project-step:last-of-type::before { height: 66px; bottom: auto; }
+
+/* The raised "cube" step block */
+.project-step-block {
+  position: relative;
+  z-index: 1;
+  min-height: 132px;
   display: flex;
-  gap: 22px;
-  align-items: flex-start;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-bottom: 4px solid rgba(15, 23, 42, 0.14); /* subtle "step" front face */
-  border-radius: 20px;
-  padding: 26px 28px;
-  margin-bottom: 24px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  padding: 20px 14px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #e8eef8, #cdd9ea);
+  border-bottom: 5px solid rgba(15, 23, 42, 0.22);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.40);
 }
-.project-step:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
-}
-/* descending staircase: each step sits a little further right */
-.project-step:nth-of-type(2) { margin-left: 18px; }
-.project-step:nth-of-type(3) { margin-left: 36px; }
-.project-step:nth-of-type(4) { margin-left: 54px; }
-.project-step:nth-of-type(5) { margin-left: 72px; }
-.project-step:nth-of-type(6) { margin-left: 90px; }
-.project-step:nth-of-type(7) { margin-left: 108px; }
-
-.step-number {
-  flex: 0 0 auto;
-  min-width: 58px;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-  line-height: 1;
-  background: linear-gradient(135deg, var(--cyan), #8cb5ff, var(--purple));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.step-body { flex: 1; min-width: 0; }
-.step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-.step-icon {
+.project-icon {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; flex: 0 0 40px;
-  border-radius: 11px; background: #ffffff; color: #2f6f9e;
-  border: 1px solid var(--border);
+  width: 34px; height: 34px; color: #c8911f;
 }
-.step-icon svg { width: 20px; height: 20px; }
-.step-body h2 { font-size: 1.2rem; color: var(--cyan); margin: 0; line-height: 1.2; }
-.step-body p { color: var(--text-muted); font-size: 0.96rem; margin: 0 0 14px; }
+.project-icon svg { width: 22px; height: 22px; }
+.project-label {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.66rem; letter-spacing: 0.18em; font-weight: 600;
+  color: #a9750f;
+}
+.project-number {
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 2.6rem; line-height: 1;
+  background: linear-gradient(135deg, #1b3a52, #4d8fd6);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
 
-.tech-tags {
+/* Right-side project details (on dark background) */
+.project-content { position: relative; z-index: 1; padding-top: 6px; }
+.project-content h2 { color: #ffffff; font-size: 1.3rem; margin: 0 0 8px; line-height: 1.2; }
+.project-content > p { color: rgba(255, 255, 255, 0.82); font-size: 0.96rem; margin: 0 0 14px; }
+
+.project-tags {
   display: flex; flex-wrap: wrap; gap: 8px;
   list-style: none; padding: 0; margin: 0 0 14px;
 }
-.tech-tags li {
-  background: #ffffff; color: var(--cyan);
-  border: 1px solid var(--border); border-radius: 999px;
+.project-tags li {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #dce7f5; border-radius: 999px;
   padding: 4px 12px; font-size: 0.8rem; font-weight: 500;
 }
-.step-role { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin: 0 0 14px; }
-.step-links { display: flex; flex-wrap: wrap; gap: 10px; }
-.repo-btn {
+.project-meta { color: rgba(255, 255, 255, 0.55); font-style: italic; font-size: 0.85rem; margin: 0 0 14px; }
+
+.project-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.project-actions .repo-btn {
   display: inline-flex; align-items: center; gap: 7px;
-  background: #0f2236; color: #ffffff;
+  background: #e8b462; color: #14233a;
   border-radius: 999px; padding: 9px 18px;
   font-size: 0.85rem; font-weight: 600; text-decoration: none;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.repo-btn:hover { transform: translateY(-2px); opacity: 0.92; }
-.repo-btn svg { width: 16px; height: 16px; }
+.project-actions .repo-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(232, 180, 98, 0.3); }
+.project-actions .repo-btn svg { width: 16px; height: 16px; }
 
-@media (max-width: 760px) {
-  .projects-stairs { padding: 6px 16px 24px; }
-  .project-step { margin-left: 0 !important; flex-direction: column; gap: 12px; padding: 22px 20px; }
-  .step-number { font-size: 2rem; }
+/* Closing CTA inside the dark section */
+.infographic-cta {
+  text-align: center; margin-top: 22px; padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.infographic-cta p { color: rgba(255, 255, 255, 0.78); margin: 0 0 18px; }
+.infographic-cta .repo-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #e8b462; color: #14233a; border-radius: 999px;
+  padding: 12px 24px; font-weight: 600; text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.infographic-cta .repo-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(232, 180, 98, 0.3); }
+.infographic-cta .repo-btn svg { width: 18px; height: 18px; }
+
+/* ----- Tablet ----- */
+@media (max-width: 900px) {
+  .project-step { grid-template-columns: 132px 1fr; gap: 24px; }
+  .project-step::before { left: 66px; }
+  .project-number { font-size: 2.2rem; }
+}
+
+/* ----- Mobile: block above content, route hidden ----- */
+@media (max-width: 620px) {
+  .projects-infographic { padding: 44px 0 56px; }
+  .infographic-inner { padding: 0 18px; }
+  .project-step { grid-template-columns: 1fr; gap: 14px; padding-bottom: 30px; }
+  .project-step::before { display: none; }
+  .project-step-block {
+    flex-direction: row; justify-content: flex-start;
+    min-height: 0; gap: 14px; padding: 14px 18px;
+  }
+  .project-number { font-size: 2rem; }
 }
