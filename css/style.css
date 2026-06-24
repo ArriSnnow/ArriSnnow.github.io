@@ -1711,3 +1711,89 @@ button:focus-visible {
   .journey-road .road-base { stroke-width: 26px; }
   .journey-road .road-dash { stroke-width: 2px; }
 }
+
+/* =====================================================================
+   PROJECTS PAGE — flat "staircase" of project steps
+   Append to the END of css/style.css.
+   ===================================================================== */
+.projects-stairs {
+  max-width: 1000px;
+  margin: 10px auto 0;
+  padding: 10px 6% 30px;
+}
+.project-step {
+  position: relative;
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-bottom: 4px solid rgba(15, 23, 42, 0.14); /* subtle "step" front face */
+  border-radius: 20px;
+  padding: 26px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.project-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+}
+/* descending staircase: each step sits a little further right */
+.project-step:nth-of-type(2) { margin-left: 18px; }
+.project-step:nth-of-type(3) { margin-left: 36px; }
+.project-step:nth-of-type(4) { margin-left: 54px; }
+.project-step:nth-of-type(5) { margin-left: 72px; }
+.project-step:nth-of-type(6) { margin-left: 90px; }
+.project-step:nth-of-type(7) { margin-left: 108px; }
+
+.step-number {
+  flex: 0 0 auto;
+  min-width: 58px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  line-height: 1;
+  background: linear-gradient(135deg, var(--cyan), #8cb5ff, var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.step-body { flex: 1; min-width: 0; }
+.step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.step-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; flex: 0 0 40px;
+  border-radius: 11px; background: #ffffff; color: #2f6f9e;
+  border: 1px solid var(--border);
+}
+.step-icon svg { width: 20px; height: 20px; }
+.step-body h2 { font-size: 1.2rem; color: var(--cyan); margin: 0; line-height: 1.2; }
+.step-body p { color: var(--text-muted); font-size: 0.96rem; margin: 0 0 14px; }
+
+.tech-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  list-style: none; padding: 0; margin: 0 0 14px;
+}
+.tech-tags li {
+  background: #ffffff; color: var(--cyan);
+  border: 1px solid var(--border); border-radius: 999px;
+  padding: 4px 12px; font-size: 0.8rem; font-weight: 500;
+}
+.step-role { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin: 0 0 14px; }
+.step-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.repo-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #0f2236; color: #ffffff;
+  border-radius: 999px; padding: 9px 18px;
+  font-size: 0.85rem; font-weight: 600; text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.repo-btn:hover { transform: translateY(-2px); opacity: 0.92; }
+.repo-btn svg { width: 16px; height: 16px; }
+
+@media (max-width: 760px) {
+  .projects-stairs { padding: 6px 16px 24px; }
+  .project-step { margin-left: 0 !important; flex-direction: column; gap: 12px; padding: 22px 20px; }
+  .step-number { font-size: 2rem; }
+}
