@@ -1875,3 +1875,17 @@ button:focus-visible {
   .project-step-block { flex-direction: row; justify-content: flex-start; gap: 14px; padding: 12px 16px; }
   .project-number { font-size: 1.9rem; }
 }
+
+/* =====================================================================
+   SKILLS PAGE — light-theme tag contrast fix
+   Append to the END of css/style.css.
+   (The old .skill-tags span styling was built for the dark theme and
+   reads very faintly on the mint cards; this makes the pills legible.)
+   ===================================================================== */
+.skill-tags span {
+  color: var(--cyan);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
