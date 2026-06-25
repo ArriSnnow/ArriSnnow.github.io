@@ -178,14 +178,20 @@ body {
 }
 
 .section-label {
-  display: inline-block;
-  color: var(--cyan);
-  border: 1px solid rgba(98, 230, 255, 0.35);
-  border-radius: 999px;
-  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  color: #1b3a52;
+  border: 1px solid rgba(27, 58, 82, 0.22);
+  border-left: 4px solid #e8b462;
+  border-radius: 8px;
+  padding: 7px 13px 7px 11px;
   margin-bottom: 24px;
-  background: rgba(98, 230, 255, 0.08);
-  font-size: 0.9rem;
+  background: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .home .hero-content {
@@ -1446,138 +1452,329 @@ button:focus-visible {
 }
 
 /* =====================================================================
-   ABOUT PAGE — wide magazine/dashboard layout
-   REPLACE the previous "ABOUT PAGE" block at the very end of
-   css/style.css with this entire block.
-   Layout only — no content, color, or typography changes.
+   ABOUT PAGE — professional presentation layout
+   Cleaner badges, stronger contrast, larger readable text.
    ===================================================================== */
 
-/* --- Featured hero: wide card, image left / text right --- */
-.about-hero {
-  max-width: 1180px;
-  background: linear-gradient(135deg, #f1f7f5, #eef3fb);
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  padding: 44px 48px;
-  margin-top: 30px;
-  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+.about-page {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 42%, #f2faf6 100%);
 }
 
-/* --- Two-column wrapper: wide main column (~70%) + sidebar (~30%) --- */
+/* --- Featured hero: wide professional profile card --- */
+.about-hero {
+  max-width: 1180px;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f8fb 100%);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 24px;
+  padding: 48px 52px;
+  margin-top: 34px;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+}
+
+.about-hero .about-intro h1 {
+  font-size: clamp(2.6rem, 4.8vw, 4.4rem);
+  line-height: 1.03;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #1b3a52, #2c5f7f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-hero .about-intro p {
+  color: #3f4f5f;
+  font-size: 1.16rem;
+  line-height: 1.75;
+  max-width: 700px;
+}
+
+.profile-photo {
+  border-radius: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.14);
+}
+
+/* --- Buttons inside About hero --- */
+.about-actions .cv-button {
+  color: #ffffff;
+  background: #0f2236;
+  border: 1px solid #0f2236;
+  box-shadow: 0 10px 22px rgba(15, 34, 54, 0.18);
+}
+
+.about-actions .secondary-button {
+  color: #1b3a52;
+  background: #ffffff;
+  border: 1px solid rgba(27, 58, 82, 0.22);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.about-actions .cv-button:hover,
+.about-actions .secondary-button:hover {
+  transform: translateY(-3px);
+}
+
+/* --- Two-column wrapper: main content + sidebar --- */
 .about-layout {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 36px clamp(16px, 3vw, 28px) 64px;
+  padding: 40px clamp(16px, 3vw, 28px) 76px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 34px;
   align-items: start;
 }
 
 .about-main {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 28px;
 }
 
-/* Six identity cards: 3 across inside the main column (shrink, never overflow) */
+/* Six identity cards */
 .about-main > .card-grid {
   max-width: none;
   margin: 0;
+  padding: 0;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.13);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.07);
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.11);
+}
+
+.info-card .card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.info-card .card-head h2 {
+  margin: 0;
+  font-size: 1.22rem;
+  line-height: 1.2;
+  color: #1b3a52;
+}
+
+.info-card p {
+  color: #445566;
+  font-size: 1.02rem;
+  line-height: 1.68;
+}
+
+/* --- Professional icon badges --- */
+.card-icon,
+.panel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1b3a52;
+  border: 1px solid rgba(27, 58, 82, 0.22);
+  box-shadow: inset 0 0 0 3px rgba(232, 180, 98, 0.12);
+}
+
+.card-icon svg,
+.panel-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+/* --- Beyond the Work section --- */
+.beyond-panel {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.13);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+}
+
+.beyond-panel .beyond-title {
+  color: #1b3a52;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.beyond-panel .beyond-lead {
+  color: #445566;
+  font-size: 1.06rem;
+  line-height: 1.7;
+  max-width: 820px;
+}
+
+.beyond-panel .card-grid {
+  max-width: none;
+  margin: 24px 0 0;
   padding: 0;
   gap: 22px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* --- Icon badge on identity cards --- */
-.info-card .card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-.info-card .card-head h2 { margin: 0; font-size: 1.1rem; line-height: 1.2; }
-.card-icon,
-.panel-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 36px; height: 36px; flex: 0 0 36px;
-  border-radius: 10px; background: var(--bg-card); color: #2f9e6f;
-}
-.card-icon svg, .panel-icon svg { width: 18px; height: 18px; }
-
-/* --- Beyond the Work: spans the full width of the main column --- */
-.beyond-panel {
-  background: #fbfdfc;
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 28px;
-  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
-}
-.beyond-panel .beyond-title { color: var(--cyan); font-size: 1.5rem; margin-bottom: 10px; }
-.beyond-panel .beyond-lead { color: var(--text-muted); margin-bottom: 4px; }
-.beyond-panel .card-grid {
-  max-width: none;
-  margin: 20px 0 0;
-  padding: 0;
-  gap: 20px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.beyond-panel .info-card h2 {
+  color: #1b3a52;
+  font-size: 1.18rem;
 }
 
-/* --- Right sidebar: its own independent stacked column --- */
-.about-sidebar { display: flex; flex-direction: column; gap: 22px; }
+.card-photo {
+  height: 190px;
+  border-radius: 18px 18px 0 0;
+}
+
+/* --- Sidebar panels --- */
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
 .side-panel {
   background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 22px;
-  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
 }
-.panel-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-.panel-head h2 { font-size: 1.05rem; color: var(--cyan); margin: 0; }
 
-.fact-row, .focus-row, .link-row {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: 0.92rem; color: var(--text-muted);
-  margin-bottom: 12px; line-height: 1.45;
+.panel-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.10);
 }
-.fact-row:last-child, .focus-row:last-child, .link-row:last-child { margin-bottom: 0; }
-.row-icon { color: #2f9e6f; flex: 0 0 18px; margin-top: 2px; }
-.row-icon svg { width: 16px; height: 16px; }
-.fact-row strong, .focus-row strong, .link-row strong { color: var(--cyan); font-weight: 600; }
-.link-row a { color: var(--purple); text-decoration: none; word-break: break-word; }
-.link-row a:hover { text-decoration: underline; }
 
-/* --- Quote panel --- */
-.quote-panel .quote-mark {
-  font-family: var(--font-display); font-size: 2.2rem; line-height: 0.5;
-  color: #2f9e6f; opacity: 0.55; display: block;
+.panel-head h2 {
+  font-size: 1.12rem;
+  color: #1b3a52;
+  margin: 0;
 }
-.quote-panel .quote-mark.close { text-align: right; margin-top: 6px; }
+
+/* Sidebar rows: clearer on projector */
+.fact-row,
+.focus-row,
+.link-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+  color: #445566;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.fact-row:last-child,
+.focus-row:last-child,
+.link-row:last-child {
+  margin-bottom: 0;
+}
+
+.row-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1b3a52;
+  background: #f7fafc;
+  border: 1px solid rgba(27, 58, 82, 0.16);
+  border-radius: 9px;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  margin-top: 0;
+}
+
+.row-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.fact-row strong,
+.focus-row strong,
+.link-row strong {
+  color: #1b3a52;
+  font-weight: 800;
+}
+
+.link-row a {
+  color: #2c5f7f;
+  text-decoration: none;
+  word-break: break-word;
+  font-weight: 700;
+}
+
+.link-row a:hover {
+  text-decoration: underline;
+}
+
+/* --- Quote panel: professional, no floating quote marks --- */
+.quote-panel {
+  border-left: 4px solid #e8b462;
+}
+
 .quote-panel blockquote {
-  font-style: italic; color: var(--text-muted);
-  font-size: 0.95rem; line-height: 1.6; margin: 8px 0 0;
+  font-style: normal;
+  color: #334455;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.quote-panel .quote-mark {
+  display: none;
 }
 
 /* =========================== RESPONSIVE =========================== */
 
-/* Tablet: sidebar drops below the main content; cards go 2-up */
 @media (max-width: 1024px) {
   .about-layout {
     grid-template-columns: 1fr;
-    padding-bottom: 56px;
+    padding-bottom: 60px;
   }
+
   .about-main > .card-grid,
   .beyond-panel .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Mobile: every grid becomes a single column */
+@media (max-width: 720px) {
+  .about-hero {
+    padding: 30px 24px;
+  }
+
+  .about-hero .about-intro h1 {
+    font-size: clamp(2.2rem, 11vw, 3.4rem);
+  }
+}
+
 @media (max-width: 600px) {
   .about-main > .card-grid,
   .beyond-panel .card-grid {
     grid-template-columns: 1fr;
   }
-}
 
-/* Hero padding tightens on small screens (it already stacks via the base rule) */
-@media (max-width: 720px) {
-  .about-hero { padding: 28px 24px; }
+  .fact-row,
+  .focus-row,
+  .link-row {
+    font-size: 0.96rem;
+  }
 }
 
 /* =====================================================================
