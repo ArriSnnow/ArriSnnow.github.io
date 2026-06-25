@@ -894,112 +894,92 @@ body {
 
 /* Experience page */
 
-.experience-grid {
-  max-width: 1150px;
+/* =====================================================================
+   EXPERIENCE PAGE — grouped CV-style sections
+   REPLACE the previous EXPERIENCE block at the end of css/style.css
+   (the old .experience-grid / .experience-card styles) with this block.
+   ===================================================================== */
+
+.exp-page {
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 20px 6% 100px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  padding: 20px 6% 90px;
 }
 
-.experience-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 26px;
-  padding: 28px;
-  backdrop-filter: blur(16px);
-  transition: 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
+.exp-section { margin-bottom: 46px; }
+.exp-section:last-child { margin-bottom: 0; }
 
-.experience-card::after {
-  content: "";
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  right: -70px;
-  bottom: -70px;
-  background: radial-gradient(circle, rgba(155, 109, 255, 0.18), transparent 65%);
-  pointer-events: none;
-}
-
-.experience-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 35px rgba(155, 109, 255, 0.14);
-}
-
-.experience-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(98, 230, 255, 0.22), rgba(155, 109, 255, 0.28));
-  border: 1px solid var(--border);
-  color: var(--cyan);
-  font-weight: 800;
+/* Section header: icon + title + rule line */
+.exp-section-head {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
   margin-bottom: 18px;
 }
+.sec-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; flex: 0 0 38px;
+  border-radius: 11px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: #2f6f9e;
+}
+.sec-icon svg { width: 20px; height: 20px; }
+.exp-section-head h2 { font-size: 1.32rem; color: var(--cyan); margin: 0; }
+.sec-rule { flex: 1; height: 1px; background: var(--border); margin-left: 4px; }
 
-.experience-card h2 {
-  color: var(--text-main);
-  font-size: 1.3rem;
-  margin-bottom: 6px;
+/* Entry cards */
+.exp-entries { display: flex; flex-direction: column; gap: 16px; }
+.exp-entry {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid #e8b462;
+  border-radius: 18px;
+  padding: 20px 24px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.exp-entry:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
 }
 
-.experience-card h3 {
-  color: var(--purple);
-  font-size: 0.95rem;
-  margin-bottom: 16px;
-}
-
-.experience-card p {
-  color: var(--text-muted);
-}
-
-.experience-tags {
+.exp-entry-top {
   display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
   flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 20px;
+}
+.exp-entry h3 { font-size: 1.08rem; color: var(--cyan); margin: 0; line-height: 1.25; }
+.exp-date {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.78rem; color: var(--text-muted);
+  background: #ffffff; border: 1px solid var(--border);
+  padding: 3px 11px; border-radius: 999px; white-space: nowrap;
+}
+.exp-org { color: #2f6f9e; font-weight: 600; font-size: 0.92rem; margin: 5px 0 9px; }
+.exp-entry > p:not(.exp-org) { color: var(--text-muted); font-size: 0.94rem; margin: 0; line-height: 1.55; }
+
+.exp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+.exp-tags span {
+  background: #ffffff; color: var(--cyan);
+  border: 1px solid var(--border); border-radius: 999px;
+  padding: 4px 11px; font-size: 0.78rem; font-weight: 500;
 }
 
-.experience-tags span {
-  color: var(--cyan);
-  border: 1px solid rgba(98, 230, 255, 0.24);
-  background: rgba(98, 230, 255, 0.08);
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 0.76rem;
+.exp-verify {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 13px; color: #2f6f9e; font-weight: 600;
+  font-size: 0.82rem; text-decoration: none;
 }
+.exp-verify:hover { text-decoration: underline; }
+.exp-verify svg { width: 14px; height: 14px; }
 
-.certificate-list {
-  margin-top: 18px;
-  display: grid;
-  gap: 10px;
-}
-
-.certificate-list p {
-  padding: 11px 12px;
-  border-radius: 14px;
-  background: rgba(0, 0, 0, 0.24);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.9rem;
-}
-
-@media (max-width: 1000px) {
-  .experience-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  .experience-grid {
-    grid-template-columns: 1fr;
-  }
+/* ----- Mobile ----- */
+@media (max-width: 600px) {
+  .exp-entry { padding: 18px 18px; }
+  .exp-entry-top { gap: 6px; }
 }
 
 /* Contact page */
